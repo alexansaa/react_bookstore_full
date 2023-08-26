@@ -29,7 +29,7 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# World Tour Concerts <a name="about-project"></a>
+# React Bookstore <a name="about-project"></a>
 
 **React Bookstore** is a Node.js - React project that is meant to implement a on-line bookstore to keep track of your favorite books. It uses react route technology to navigate through the website and implementes a SPA - Single Page Application 
 
