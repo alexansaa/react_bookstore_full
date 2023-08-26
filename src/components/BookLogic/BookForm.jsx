@@ -26,6 +26,7 @@ const BookForm = () => {
         Author name:
         <input name="aname" type="text" value={state.aname} onChange={handleChange} />
       </label>
+      <button type="submit">Submit</button>
     </form>
   );
 };

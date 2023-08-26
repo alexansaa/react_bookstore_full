@@ -31,7 +31,7 @@
 
 # World Tour Concerts <a name="about-project"></a>
 
-**To-Do List** is a Node.js - React project that is meant to implement a on-line bookstore to keep track of your favorite books.
+**React Bookstore** is a Node.js - React project that is meant to implement a on-line bookstore to keep track of your favorite books. It uses react route technology to navigate through the website and implementes a SPA - Single Page Application 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -65,9 +65,10 @@
 ### Key Features <a name="key-features"></a>
 
 - **Node.js & React implementation for project development**
-- **HTML template to render the main page**
+- **HTML Layout template to render the NavBar**
 - **Components used for development**
 - **Home page and catalog page included**
+- **SPA development**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -88,7 +89,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```
-git clone yourlink repo https://github.com/alexansaa/ReactBookstore.git
+https://github.com/alexansaa/react_bookstore_full.git
 
 cd your folder name
 ```
@@ -138,7 +139,7 @@ Deploy this project on any websever
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/alexansaa/ReactBookstore/issues).
+Feel free to check the [issues page](https://github.com/alexansaa/react_bookstore_full/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
