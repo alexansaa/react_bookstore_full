@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from "uuid";
-import BookList from './BookList.jsx';
+import { v4 as uuidv4 } from 'uuid';
+import BookList from './BookList';
 import BookForm from './BookForm';
 
 const BookLogic = () => {
@@ -28,21 +28,19 @@ const BookLogic = () => {
 
   const handleDelete = (id) => {
     setBooks([
-      ...books.filter((book) => {
-        return book.id !== id;
-      }),
+      ...books.filter((book) => book.id !== id),
     ]);
   };
 
   return (
     <div>
-      <BookForm handleAdd={handleAdd}/>
+      <BookForm handleAdd={handleAdd} />
       <BookList
         booksProps={books}
         handleDelete={handleDelete}
       />
     </div>
   );
-}
+};
 
 export default BookLogic;
