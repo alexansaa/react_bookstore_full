@@ -21,7 +21,7 @@ const Navbar = () => (
               <NavLink to={link.path}>{link.text}</NavLink>
             </li>
           </React.Fragment>
-        ))},
+        ))}
       </ul>
     </div>
   </nav>
