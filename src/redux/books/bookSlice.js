@@ -16,7 +16,7 @@ const bookSlice = createSlice({
           id: uuid(),
           title: action.payload.author,
         },
-      ]
+      ];
     },
     removeBook: (state, action) => {
       state.bookItems = state.bookItems.filter((book) => book.id !== action.id);
