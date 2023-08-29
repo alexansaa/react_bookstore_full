@@ -14,7 +14,8 @@ const bookSlice = createSlice({
         ...state.bookItems,
         {
           id: uuid(),
-          title: action.payload.author,
+          title: action.payload.title,
+          author: action.payload.author,
         },
       ];
     },
