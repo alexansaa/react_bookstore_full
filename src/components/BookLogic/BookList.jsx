@@ -3,13 +3,13 @@ import BookItem from './BookItem';
 
 const BookList = ({ booksProps }) => (
   <ul>
-    {booksProps.map((book) => (
+    {booksProps.map((book, index) => (
       <BookItem
-        key={book.item_id}
-        itemId={book.item_id}
-        title={book.title}
-        author={book.author}
-        category={book.category}
+        key={index}
+        itemId={index}
+        title={book[0].title}
+        author={book[0].author}
+        category={book[0].category}
       />
     ))}
   </ul>
