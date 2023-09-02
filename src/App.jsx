@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-
 import Layout from './components/Layout';
 import BookLogic from './components/BookLogic/BookLogic';
 import CategoriesLogic from './components/CategoriesLogic/CategoriesLogic';
