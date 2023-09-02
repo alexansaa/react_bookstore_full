@@ -2,8 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
-const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GLB9XWpiCCehgqZNOYID';
-// const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/GLB9XWpiCCehgqZNOYID';
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/IqNhFOuHupMUt4Y7YbIq';
 const booksEndPoint = '/books';
 
 const initialState = {
