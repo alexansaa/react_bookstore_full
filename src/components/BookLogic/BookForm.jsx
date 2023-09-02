@@ -5,9 +5,9 @@ import { addBook } from '../../redux/books/bookSlice';
 const BookForm = () => {
   const dispatch = useDispatch();
 
-  const [author, setAuthor] = useState('');
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
+  const [myAuthor, setAuthor] = useState('');
+  const [myTitle, setTitle] = useState('');
+  const [myCategory, setCategory] = useState('');
 
   const handleInputChange = (e) => {
     switch (e.target.name) {
@@ -26,11 +26,11 @@ const BookForm = () => {
 
   const doSubmit = (e) => {
     e.preventDefault();
-    console.log(`${author} ${title} ${category}`);
+    console.log(`${myAuthor} ${myTitle} ${myCategory}`);
     dispatch(addBook({
-      title,
-      author,
-      category,
+      myTitle,
+      myAuthor,
+      myCategory,
     }));
   };
 
@@ -41,15 +41,15 @@ const BookForm = () => {
       </h1>
       <label htmlFor="bname">
         Book name:
-        <input name="bname" type="text" value={title} onChange={handleInputChange} />
+        <input name="bname" type="text" value={myTitle} onChange={handleInputChange} />
       </label>
       <label htmlFor="aname">
         Author name:
-        <input name="aname" type="text" value={author} onChange={handleInputChange} />
+        <input name="aname" type="text" value={myAuthor} onChange={handleInputChange} />
       </label>
       <label htmlFor="cname">
         Category name:
-        <input name="cname" type="text" value={category} onChange={handleInputChange} />
+        <input name="cname" type="text" value={myCategory} onChange={handleInputChange} />
       </label>
       <button type="submit" onClick={doSubmit}>Submit</button>
     </form>

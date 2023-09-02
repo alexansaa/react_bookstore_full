@@ -10,7 +10,7 @@ const BookLogic = () => {
 
   useEffect(() => {
     dispatch(getResultItems());
-  }, [dispatch]);
+  }, []);
 
   if (isLoading) {
     return <div>Content Is Loading..!</div>;
@@ -19,7 +19,6 @@ const BookLogic = () => {
   if (error) {
     return <div>Content Error! Something went wrong!</div>;
   }
-
   return (
     <div>
       <BookForm />

@@ -8,9 +8,9 @@ const BookList = ({ booksProps }) => (
       <BookItem
         key={uuidv4()}
         id={index + 1}
-        title={book[0].title}
-        author={book[0].author}
-        category={book[0].category}
+        title={book.title}
+        author={book.author}
+        category={book.category}
       />
     ))}
   </ul>
@@ -19,7 +19,7 @@ const BookList = ({ booksProps }) => (
 BookList.propTypes = {
   booksProps: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.string,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,

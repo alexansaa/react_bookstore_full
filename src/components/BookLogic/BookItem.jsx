@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/bookSlice';
 
@@ -23,8 +24,12 @@ const BookItem = ({
   );
 };
 
+BookItem.defaultProps = {
+  id: uuidv4(),
+};
+
 BookItem.propTypes = {
-  id: PropTypes.node.isRequired,
+  id: PropTypes.node,
   title: PropTypes.node.isRequired,
   author: PropTypes.node.isRequired,
   category: PropTypes.node.isRequired,

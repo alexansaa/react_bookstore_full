@@ -15,10 +15,15 @@ export const getResultItems = createAsyncThunk('result/getResultItems', async (t
   try {
     const getBooksUrl = `${url}${booksEndPoint}`;
     const resp = await axios(getBooksUrl);
-    console.log(resp.data);
-    console.log(Object.values(resp.data));
-    // console.log(typeof resp.data);
-    return Object.values(resp.data);
+    const myData = resp.data;
+
+    const myTransData = [];
+
+    Object.keys(myData).forEach((key) => {
+      myTransData.push(myData[key][0]);
+    });
+
+    return myTransData;
   } catch (error) {
     return thunkAPI.rejectWithValue('something went wrong...');
   }
@@ -30,13 +35,15 @@ const bookSlice = createSlice({
   reducers: {
     addBook: (state, action) => {
       console.log('adding');
-      state.bookItems = [
-        ...state.bookItems,
+      const { myTitle, myAuthor, myCategory } = action.payload;
+      console.log(`type ${state.books}`);
+      state.books = [
+        ...state.books,
         {
           item_id: uuidv4(),
-          title: action.payload.title,
-          author: action.payload.author,
-          category: action.payload.category,
+          title: myTitle,
+          author: myAuthor,
+          category: myCategory,
         },
       ];
     },
