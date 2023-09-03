@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { postNewBook } from '../../redux/books/bookSlice';
 
 const BookForm = () => {
   const dispatch = useDispatch();
-  const { books } = useSelector((store) => store.book);
 
   const [myAuthor, setAuthor] = useState('');
   const [myTitle, setTitle] = useState('');
@@ -31,7 +30,7 @@ const BookForm = () => {
       myTitle,
       myAuthor,
       myCategory,
-    }, books.books));
+    }));
   };
 
   return (

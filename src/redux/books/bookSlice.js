@@ -20,7 +20,9 @@ export const getResultItems = createAsyncThunk('result/getResultItems', async (t
     const myTransData = [];
 
     Object.keys(myData).forEach((key) => {
-      myTransData.push(myData[key][0]);
+      const myTmpObj = myData[key][0];
+      myTmpObj.id = key;
+      myTransData.push(myTmpObj);
     });
 
     return myTransData;
@@ -29,7 +31,7 @@ export const getResultItems = createAsyncThunk('result/getResultItems', async (t
   }
 });
 
-export const postNewBook = createAsyncThunk('result/postNewBook', async ({ myTitle, myAuthor, myCategory }, state, thunkAPI) => {
+export const postNewBook = createAsyncThunk('result/postNewBook', async ({ myTitle, myAuthor, myCategory }, thunkAPI) => {
   const postBooksCreateUrl = `${url}${booksEndPoint}`;
   const payload = {
     item_id: uuidv4(),
@@ -37,12 +39,28 @@ export const postNewBook = createAsyncThunk('result/postNewBook', async ({ myTit
     author: myAuthor,
     category: myCategory,
   };
-  console.log(payload);
   try {
     const resp = await axios.post(postBooksCreateUrl, payload);
-    console.log(resp);
     if (resp.data === 'Created') {
       return payload;
+    }
+    return thunkAPI.rejectWithValue('something went wrong...');
+  } catch (error) {
+    return thunkAPI.rejectWithValue('something went wrong...');
+  }
+});
+
+export const deleteBook = createAsyncThunk('result/deleteBook', async ({ id }, thunkAPI) => {
+  const postBooksDeleteUrl = `${url}${booksEndPoint}/${id}`;
+  const payload = {
+    item_id: id,
+  };
+  console.log(payload);
+  try {
+    const resp = await axios.delete(postBooksDeleteUrl, payload);
+    console.log(resp);
+    if (resp.data === 'The book was deleted successfully!') {
+      return id;
     }
     return thunkAPI.rejectWithValue('something went wrong...');
   } catch (error) {
@@ -85,6 +103,17 @@ const bookSlice = createSlice({
       ];
     },
     [postNewBook.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [deleteBook.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [deleteBook.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      console.log(`my payload: ${action.payload}`);
+      state.books = state.books.filter((element) => element.id !== action.payload);
+    },
+    [deleteBook.rejected]: (state) => {
       state.isLoading = false;
     },
   },
