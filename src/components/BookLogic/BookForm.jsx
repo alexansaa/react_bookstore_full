@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addBook } from '../../redux/books/bookSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { postNewBook } from '../../redux/books/bookSlice';
 
 const BookForm = () => {
   const dispatch = useDispatch();
+  const { books } = useSelector((store) => store.book);
 
   const [myAuthor, setAuthor] = useState('');
   const [myTitle, setTitle] = useState('');
@@ -26,12 +27,11 @@ const BookForm = () => {
 
   const doSubmit = (e) => {
     e.preventDefault();
-    console.log(`${myAuthor} ${myTitle} ${myCategory}`);
-    dispatch(addBook({
+    dispatch(postNewBook({
       myTitle,
       myAuthor,
       myCategory,
-    }));
+    }, books.books));
   };
 
   return (

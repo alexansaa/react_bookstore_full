@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/IqNhFOuHupMUt4Y7YbIq';
 const booksEndPoint = '/books';
@@ -29,23 +29,34 @@ export const getResultItems = createAsyncThunk('result/getResultItems', async (t
   }
 });
 
+export const postNewBook = createAsyncThunk('result/postNewBook', async ({ myTitle, myAuthor, myCategory }, state, thunkAPI) => {
+  const postBooksCreateUrl = `${url}${booksEndPoint}`;
+  const payload = {
+    item_id: uuidv4(),
+    title: myTitle,
+    author: myAuthor,
+    category: myCategory,
+  };
+  console.log(payload);
+  try {
+    const resp = await axios.post(postBooksCreateUrl, payload);
+    console.log(resp);
+    if (resp.data === 'Created') {
+      return payload;
+    }
+    return thunkAPI.rejectWithValue('something went wrong...');
+  } catch (error) {
+    return thunkAPI.rejectWithValue('something went wrong...');
+  }
+});
+
 const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {
     addBook: (state, action) => {
       console.log('adding');
-      const { myTitle, myAuthor, myCategory } = action.payload;
-      console.log(`type ${state.books}`);
-      state.books = [
-        ...state.books,
-        {
-          item_id: uuidv4(),
-          title: myTitle,
-          author: myAuthor,
-          category: myCategory,
-        },
-      ];
+      state.books.push(action.payload);
     },
     removeBook: (state, action) => {
       const bookId = action.payload.itemId;
@@ -61,6 +72,19 @@ const bookSlice = createSlice({
       state.books = action.payload;
     },
     [getResultItems.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [postNewBook.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [postNewBook.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.books = [
+        ...state.books,
+        action.payload,
+      ];
+    },
+    [postNewBook.rejected]: (state) => {
       state.isLoading = false;
     },
   },
