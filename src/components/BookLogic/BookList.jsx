@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+// import { v4 as uuidv4 } from 'uuid';
 import BookItem from './BookItem';
 
 const BookList = ({ booksProps }) => (
   <ul>
     {booksProps.map((book) => (
       <BookItem
-        key={book.item_id}
-        itemId={book.item_id}
+        key={book.id}
+        id={book.id}
         title={book.title}
         author={book.author}
         category={book.category}
@@ -18,7 +19,7 @@ const BookList = ({ booksProps }) => (
 BookList.propTypes = {
   booksProps: PropTypes.arrayOf(
     PropTypes.shape({
-      item_id: PropTypes.string.isRequired,
+      id: PropTypes.string,
       title: PropTypes.string.isRequired,
       author: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
