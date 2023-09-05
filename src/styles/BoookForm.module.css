@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.bookForm h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #888888;
+  font-size: large;
+}
+
+.inputData {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputData input {
+  color: #888888;
+  height: 35px;
+  width: 30%;
+  font-size: medium;
+}
+
+.inputData select {
+  color: #888888;
+  width: 18%;
+  font-size: medium;
+  
+}
+
+.border {
+  border: solid 1px #e8e8e8;
+}
+
+.submitBtn {
+  background-color: #0290ff;
+  color: #ffffff;
+  font-size: small;
+  border-radius: 3px;
+  border: 4px transparent;
+  width: 13%;
+  letter-spacing: 0.5px;
+  font-size: medium;
+}
+
+.inputPadding {
+  padding-left: 2%;
+}

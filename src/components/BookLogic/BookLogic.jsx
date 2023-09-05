@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import BookList from './BookList';
 import BookForm from './BookForm';
 import { getResultItems } from '../../redux/books/bookSlice';
+import style from '../../styles/BookLogic.module.css';
 
 const BookLogic = () => {
   const dispatch = useDispatch();
@@ -21,9 +22,14 @@ const BookLogic = () => {
   }
 
   return (
-    <div>
-      <BookForm />
-      <BookList booksProps={books} />
+    <div className={style.white}>
+      <ul className={style.itemsCnt}>
+        <BookList booksProps={books} />
+      </ul>
+      <hr className={style.separator} />
+      <div className={style.bookForm}>
+        <BookForm />
+      </div>
     </div>
   );
 };
