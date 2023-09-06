@@ -33,11 +33,13 @@ export const getResultItems = createAsyncThunk('result/getResultItems', async (t
 
 export const postNewBook = createAsyncThunk('result/postNewBook', async ({ myTitle, myAuthor, myCategory }, thunkAPI) => {
   const postBooksCreateUrl = `${url}${booksEndPoint}`;
+  const myUuid = uuidv4();
   const payload = {
-    item_id: uuidv4(),
+    item_id: myUuid,
     title: myTitle,
     author: myAuthor,
     category: myCategory,
+    id: myUuid,
   };
   try {
     const resp = await axios.post(postBooksCreateUrl, payload);

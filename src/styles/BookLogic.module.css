@@ -1,0 +1,26 @@
+.separator {
+  /* width: 87.5rem; */
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+  border: solid 1px #e8e8e8;
+}
+
+.white {
+  background-color: #fafafa;
+}
+
+.itemsCnt {
+  border-radius: 4px;
+  margin: 0;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.bookForm {
+  padding-left: 5%;
+  padding-right: 5%;
+}

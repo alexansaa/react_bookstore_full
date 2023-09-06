@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 // import { v4 as uuidv4 } from 'uuid';
 import BookItem from './BookItem';
+// import style from '../../styles/BookList.module.css';
 
 const BookList = ({ booksProps }) => (
-  <ul>
+  <>
     {booksProps.map((book) => (
       <BookItem
         key={book.id}
@@ -13,7 +14,7 @@ const BookList = ({ booksProps }) => (
         category={book.category}
       />
     ))}
-  </ul>
+  </>
 );
 
 BookList.propTypes = {
