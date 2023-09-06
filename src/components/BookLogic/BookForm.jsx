@@ -42,8 +42,7 @@ const BookForm = () => {
       <div className={styles.inputData}>
         <input name="bname" type="text" value={myTitle} onChange={handleInputChange} placeholder="Book name" className={`${styles.border} ${styles.inputPadding}`} />
         <input name="aname" id="aname" type="text" value={myAuthor} onChange={handleInputChange} placeholder="Author name" className={`${styles.border} ${styles.inputPadding}`} />
-        <select name="cname" id="cDropdown" className={`${styles.border} ${styles.inputPadding}`}>
-          <option value="" disabled selected>Category</option>
+        <select name="cname" id="cDropdown" className={`${styles.border} ${styles.inputPadding}`} onChange={handleInputChange} value="Universal">
           <option value="Universal">Universal</option>
           <option value="Historical">Historical</option>
           <option value="Literature">Literature</option>
