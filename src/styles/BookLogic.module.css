@@ -8,15 +8,10 @@
 }
 
 .white {
-  background-color: #fafafa
+  background-color: #fafafa;
 }
 
 .itemsCnt {
-  
-  /* width: 87.5rem;
-  height: 68.563rem;
-  margin: 0 2.5rem 4.063rem 0;
-  padding: 0 0 49.625rem; */
   border-radius: 4px;
   margin: 0;
   padding-left: 5%;
